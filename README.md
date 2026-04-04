@@ -33,8 +33,6 @@ Used as a feature extractor to capture local patterns and reduce noise.
 LSTM:
 Learns long-term dependencies in the time series and is the main component responsible for prediction.
 
-Fully Connected Layer:
-Used for final output, but it is frozen (not trainable).
 
 ⸻
 
