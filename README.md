@@ -8,7 +8,7 @@ The approach combines:
 	•	CNN (Convolutional Neural Network) for feature extraction from sequential stock data.
 	•	LSTM (Long Short-Term Memory) for temporal pattern learning and classification.
 
-Dataset
+# Dataset
 	•	The dataset used is historical Netflix stock prices.
 	•	Selected features: Open, High, Low, Close, Volume.
 	•	Preprocessing includes:
@@ -16,17 +16,16 @@ Dataset
 	•	Creating sequences of length 20 (seq_length = 20).
 	•	Labeling based on future 5-day trend (future_step = 5).
 
-Model Architecture
+# Model Architecture
 	•	CNN Layer: Extracts spatial features from sequential data.
 	•	Conv1D with 64 output channels
 	•	ReLU activation
 	•	MaxPool1D for dimensionality reduction
-	•	LSTM Layer: Captures temporal dependencies.
+	•	LSTM Layer: Captures temporal dependencies and for classification .
 	•	Hidden size: 128
 	•	Dropout: 0.4
-	•	Fully Connected Layer: Outputs probability using Sigmoid activation for binary classification.
 
-Training Configuration
+# Training Configuration
 	•	Epochs: 50
 	•	Batch size: 64
 	•	Optimizer: Adam (lr = 0.001)
