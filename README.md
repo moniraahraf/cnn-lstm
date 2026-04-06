@@ -32,7 +32,7 @@ The approach combines:
 	•	Loss function: Binary Cross Entropy (BCE)
 	•	Dropout applied to LSTM output to reduce overfitting.
 
-Results
+# Results
 	•	Training Accuracy: 83.10%
 	•	Test Accuracy: 77.66%
 
