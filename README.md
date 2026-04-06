@@ -30,9 +30,10 @@ The approach combines:
 	•	Conv1D with 64 output channels
 	•	ReLU activation
 	•	MaxPool1D for dimensionality reduction
-	•	LSTM Layer: Captures temporal dependencies and for classification .
+	•	LSTM Layer: Captures temporal dependencies .
 	•	Hidden size: 128
 	•	Dropout: 0.4
+	•	Fully Connected Layer: Outputs probability using Sigmoid activation for binary classification.
 
 # Training Configuration
 	•	Epochs: 50
