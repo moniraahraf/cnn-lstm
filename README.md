@@ -16,6 +16,15 @@ The approach combines:
 	•	Creating sequences of length 20 (seq_length = 20).
 	•	Labeling based on future 5-day trend (future_step = 5).
 
+# Explanation of Dataset Columns
+
+    Date – The trading date. Can be transformed into additional features like day of the week, month, or seasonal cycles.
+    Open – The opening price. The first price at which the stock was traded during the day.
+	Close – The closing price. The last price at which the stock was traded during the day; usually the most important column for prediction.
+    High – The highest price. The maximum price reached by the stock during the trading day.
+    Low – The lowest price. The minimum price reached by the stock during the trading day.
+    Volume – The trading volume. The total number of shares traded during the day; indicates the level of market activity.
+
 # Model Architecture
 	•	CNN Layer: Extracts spatial features from sequential data.
 	•	Conv1D with 64 output channels
