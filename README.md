@@ -1,87 +1,44 @@
-# cnn-lstm
+#Netflix Stock Prediction using CNN-LSTM
 
-CNN-LSTM Model for Stock Price Direction Prediction
-	1.	Overview
-This project aims to predict the next-day stock price direction (up or down) using a hybrid deep learning model that combines CNN and LSTM.
-CNN is used as a feature extractor to capture local patterns in the data, while LSTM is used to learn temporal dependencies and perform the prediction.
-The final classification layer (Fully Connected layer) is frozen, so the model mainly relies on LSTM for learning.
+Overview
 
-⸻
+This project implements a CNN-LSTM hybrid model to predict the future trend of Netflix stock prices. The model is designed for classification, determining whether the stock price will increase (1) or decrease (0) after a specified future step.
 
-	2.	Data Preprocessing
-The following features are used:
+The approach combines:
+	•	CNN (Convolutional Neural Network) for feature extraction from sequential stock data.
+	•	LSTM (Long Short-Term Memory) for temporal pattern learning and classification.
 
-	•	Adjusted Close Price
-	•	Volume
-	•	Daily Return (percentage change)
+Dataset
+	•	The dataset used is historical Netflix stock prices.
+	•	Selected features: Open, High, Low, Close, Volume.
+	•	Preprocessing includes:
+	•	Normalization using MinMaxScaler.
+	•	Creating sequences of length 20 (seq_length = 20).
+	•	Labeling based on future 5-day trend (future_step = 5).
 
-The data is normalized using MinMaxScaler.
-The dataset is converted into sequences with a length of 120 time steps.
+Model Architecture
+	•	CNN Layer: Extracts spatial features from sequential data.
+	•	Conv1D with 64 output channels
+	•	ReLU activation
+	•	MaxPool1D for dimensionality reduction
+	•	LSTM Layer: Captures temporal dependencies.
+	•	Hidden size: 128
+	•	Dropout: 0.4
+	•	Fully Connected Layer: Outputs probability using Sigmoid activation for binary classification.
 
-Label definition:
-	•	1 → price goes up
-	•	0 → price goes down
+Training Configuration
+	•	Epochs: 50
+	•	Batch size: 64
+	•	Optimizer: Adam (lr = 0.001)
+	•	Loss function: Binary Cross Entropy (BCE)
+	•	Dropout applied to LSTM output to reduce overfitting.
 
-⸻
+Results
+	•	Training Accuracy: 83.10%
+	•	Test Accuracy: 77.66%
 
-	3.	Model Architecture
-Input → CNN → LSTM → FC (Frozen) → Output
+The results show that the model learned well from training data and generalizes reasonably to test data, capturing meaningful patterns in stock price trends.
 
-CNN:
-Used as a feature extractor to capture local patterns and reduce noise.
-
-LSTM:
-Learns long-term dependencies in the time series and is the main component responsible for prediction.
-
-
-⸻
-
-	4.	Hyperparameters
-Batch Size: 32
-Epochs: 60
-Hidden Size: 256
-Learning Rate: 0.0005
-Dropout: 0.3
-Sequence Length: 120
-
-⸻
-
-	5.	Training Details
-Loss Function: Binary Cross Entropy with Logits
-Optimizer: Adam
-Only parameters with requires_grad=True are updated during training.
-The Fully Connected layer is frozen.
-
-⸻
-
-	6.	Results
-Training Accuracy: 61.82%
-Testing Accuracy: 57.84%
-
-⸻
-
-
-	7.	Analysis
-The accuracy is relatively low, which is expected because:
-
-	•	The dataset is small
-	•	Stock market data is highly noisy and difficult to predict
-
-The small gap between training and testing accuracy indicates there is no strong overfitting.
-However, performance is still close to random guessing, so the model needs improvement.
-
-⸻
-
-	8.	Possible Improvements
-
-	•	Increase dataset size
-	•	Freeze CNN completely for better feature extraction
-	•	Add more features (technical indicators)
-	•	Tune hyperparameters
-	•	Use attention mechanisms with LSTM
-
-⸻
-
-Final Conclusion
-The model demonstrates basic learning capability, but performance is limited due to the small dataset and complexity of stock prediction.
-The CNN-LSTM architecture is a solid starting point and can be improved further.
+Notes
+	•	Using multi-day future labeling reduces daily noise in stock price movement, improving model performance.
+	•	Accuracy can be further improved by adding technical indicators or features derived from dates, such as weekday, month, or seasonal cycles.
