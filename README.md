@@ -18,12 +18,12 @@ The approach combines:
 
 # Explanation of Dataset Columns
 
-    Date – The trading date. Can be transformed into additional features like day of the week, month, or seasonal cycles.
-    Open – The opening price. The first price at which the stock was traded during the day.
-	Close – The closing price. The last price at which the stock was traded during the day; usually the most important column for prediction.
-    High – The highest price. The maximum price reached by the stock during the trading day.
-    Low – The lowest price. The minimum price reached by the stock during the trading day.
-    Volume – The trading volume. The total number of shares traded during the day; indicates the level of market activity.
+	•	Date – The trading date. Can be transformed into additional features like day of the week, month, or seasonal cycles.
+	•	Open – The opening price. The first price at which the stock was traded during the day.
+	•	High – The highest price. The maximum price reached by the stock during the trading day.
+	•	Low – The lowest price. The minimum price reached by the stock during the trading day.
+	•	Close – The closing price. The last price at which the stock was traded during the day; usually the most important column for prediction.
+	•	Volume – The trading volume. The total number of shares traded during the day; indicates the level of market activity.
 
 # Model Architecture
 	•	CNN Layer: Extracts spatial features from sequential data.
