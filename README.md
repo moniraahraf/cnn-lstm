@@ -1,6 +1,6 @@
-#Netflix Stock Prediction using CNN-LSTM
+## Netflix Stock Prediction using CNN-LSTM
 
-Overview
+# Overview
 
 This project implements a CNN-LSTM hybrid model to predict the future trend of Netflix stock prices. The model is designed for classification, determining whether the stock price will increase (1) or decrease (0) after a specified future step.
 
