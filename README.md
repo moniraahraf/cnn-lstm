@@ -41,6 +41,13 @@ The approach combines:
 	•	Optimizer: Adam (lr = 0.001)
 	•	Loss function: Binary Cross Entropy (BCE)
 	•	Dropout applied to LSTM output to reduce overfitting.
+	
+    The training process was configured with 50 epochs, meaning the model iterates over the entire dataset 50 times to improve its performance and learn patterns effectively. The model is deployed on the available hardware using PyTorch's device management. If a GPU (CUDA) is available, it is utilized to accelerate training; otherwise, the CPU is used. This ensures efficient computation depending on the system capabilities.
+    The architecture used is a hybrid CNN-LSTM model, which is transferred to the selected device to maintain consistency between the model and input data during training.
+    For the loss function, Binary Cross Entropy Loss (BCELoss) is applied. This loss function is suitable for binary classification tasks, where the output is expected to be a probability between 0 and 1.
+    The optimization process is handled using the Adam optimizer, which is known for its efficiency and adaptive learning capabilities. A learning rate of 0.001 is used to balance convergence speed and stability during training.
+    Overall, this setup ensures a stable and efficient training process for the binary classification model.
+
 
 # Results
 	•	Training Accuracy: 83.10%
